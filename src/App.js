@@ -49,8 +49,8 @@ export default function UserDetails() {
       alert('Please fill in all fields.');
       return;
     }
-    if (!formData.email.includes('@')) {
-      alert(`Invalid email. Please include an '@' in the email address.`);
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      alert(`Invalid email format. Please enter a valid email address.`);
       return;
     }
     if (!/^\d{10}$/.test(formData.phone)) {
