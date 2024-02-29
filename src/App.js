@@ -4,7 +4,7 @@ import './App.css';
 export default function UserDtails() {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
+    username: '',
     email: '',
     phone: '',
     dob: ''
@@ -46,7 +46,7 @@ export default function UserDtails() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform validation
-    if (!formData.name || !formData.email || !formData.phone || !formData.dob) {
+    if (!formData.username || !formData.email || !formData.phone || !formData.dob) {
       alert('Please fill out all fields.');
       return;
     }
@@ -67,7 +67,7 @@ export default function UserDtails() {
     // Handle form submission
     console.log('Form submitted:', formData);
     // Reset form data
-    setFormData({ name: '', email: '', phone: '', dob: '' });
+    setFormData({ username: '', email: '', phone: '', dob: '' });
     // Close modal
     closeModal();
   };
@@ -88,11 +88,11 @@ export default function UserDtails() {
               <span className="modal-close" onClick={closeModal}>&times;</span>
               <h2>Fill Details</h2>
               <form onSubmit={handleSubmit}>
-              <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required /><br />
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="username">Username:</label>
+              <input type="text" id="username" name="username" value={formData.username} onChange={handleInputChange} required /><br />
+              <label htmlFor="email">Email Address:</label>
               <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required /><br />
-              <label htmlFor="phone">Phone:</label>
+              <label htmlFor="phone">Phone number:</label>
               <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} required /><br />
               <label htmlFor="dob">Date of Birth:</label>
               <input type="date" id="dob" name="dob" value={formData.dob} onChange={handleInputChange} required /><br />
