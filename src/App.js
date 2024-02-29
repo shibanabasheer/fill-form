@@ -42,19 +42,20 @@ export default function UserDtails() {
     setFormData({ ...formData, [name]: value });
   };
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    // Perform validation
     if (!formData.name || !formData.email || !formData.phone || !formData.dob) {
       alert('Please fill out all fields.');
       return;
     }
     if (!formData.email.includes('@')) {
-      alert('Invalid email. Please check your email address.');
+      alert(`Please include an '@' in the email address. ${formData.email} is missing an '@'.`);
       return;
     }
     if (!/^\d{10}$/.test(formData.phone)) {
-      alert('Invalid phone number. Please enter a 10-digit phone number.');
+      alert('Invalid phone number. Please enter a 10 digit phone number.');
       return;
     }
     const currentDate = new Date();
@@ -63,8 +64,11 @@ export default function UserDtails() {
       alert('Invalid date of birth. Date of birth cannot be in the future.');
       return;
     }
+    // Handle form submission
     console.log('Form submitted:', formData);
+    // Reset form data
     setFormData({ name: '', email: '', phone: '', dob: '' });
+    // Close modal
     closeModal();
   };
 
@@ -84,16 +88,16 @@ export default function UserDtails() {
               <span className="modal-close" onClick={closeModal}>&times;</span>
               <h2>Fill Details</h2>
               <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Userame:</label>
-                <input type="text" id="username" name="username" value={formData.username} onChange={handleInputChange} required /><br />
-                <label htmlFor="email">Email Address:</label>
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required /><br />
-                <label htmlFor="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} required /><br />
-                <label htmlFor="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" value={formData.dob} onChange={handleInputChange} required /><br />
-                <button type="submit" className="submit-button">Submit</button>
-              </form>
+              <label htmlFor="name">Name:</label>
+              <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required /><br />
+              <label htmlFor="email">Email:</label>
+              <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required /><br />
+              <label htmlFor="phone">Phone:</label>
+              <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} required /><br />
+              <label htmlFor="dob">Date of Birth:</label>
+              <input type="date" id="dob" name="dob" value={formData.dob} onChange={handleInputChange} required /><br />
+              <button type="submit">Submit</button>
+            </form>
             </div>
           </div>
         </div>
