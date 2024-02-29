@@ -49,8 +49,8 @@ export default function UserDetails() {
       alert('Please fill in all fields.');
       return;
     }
-    if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      alert(`Invalid email format. Please enter a valid email address.`);
+    if (!formData.email.includes('@')) {
+      alert(`Invalid email format. Please include an '@' in the email address.`);
       return;
     }
     if (!/^\d{10}$/.test(formData.phone)) {
@@ -90,7 +90,7 @@ export default function UserDetails() {
                 <label htmlFor="username">Username:</label>
                 <input type="text" id="username" name="username" value={formData.username} onChange={handleInputChange} required /><br />
                 <label htmlFor="email">Email Address:</label>
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required /><br />
+                <input type="invalidemail" id="email" name="email" value={formData.email} onChange={handleInputChange} required /><br />
                 <label htmlFor="phone">Phone number:</label>
                 <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} required /><br />
                 <label htmlFor="dob">Date of Birth:</label>
