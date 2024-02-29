@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 
-export default function UserDtails() {
+export default function UserDetails() {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     username: '',
@@ -46,7 +46,7 @@ export default function UserDtails() {
     e.preventDefault();
     // Perform validation
     if (!formData.username || !formData.email || !formData.phone || !formData.dob) {
-      alert('Please fill out all fields.');
+      alert('Please fill in all fields.');
       return;
     }
     if (!formData.email.includes('@')) {
