@@ -96,7 +96,7 @@ export default function UserDtails() {
               <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} required /><br />
               <label htmlFor="dob">Date of Birth:</label>
               <input type="date" id="dob" name="dob" value={formData.dob} onChange={handleInputChange} required /><br />
-              <button type="submit">Submit</button>
+              <button type="submit" className='submit-button'>Submit</button>
             </form>
             </div>
           </div>
