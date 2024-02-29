@@ -40,7 +40,7 @@ export default function UserDtails() {
       alert('Please fill out all fields.');
       return;
     }
-    else if (!/^\S+@\S+\.\S+$/.test(email)) {
+    else if (!email.includes('@')) {
       alert('Invalid email. Please check your email address.');
       return;
     }
@@ -82,7 +82,7 @@ export default function UserDtails() {
               <form onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit(username, email, phone, dob);
-              }}>
+              }} noValidate>
                 <label htmlFor="username">Username:</label>
                 <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required/><br />
                 <label htmlFor="email">Email Address:</label>
