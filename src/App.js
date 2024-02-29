@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './App.css'; // Import CSS file for custom styling
+import './App.css';
 
 export default function UserDtails() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function UserDtails() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform validation
+    
     if (!formData.name || !formData.email || !formData.phone || !formData.dob) {
       alert('Please fill out all fields.');
       return;
@@ -63,11 +63,8 @@ export default function UserDtails() {
       alert('Invalid date of birth. Date of birth cannot be in the future.');
       return;
     }
-    // Handle form submission
     console.log('Form submitted:', formData);
-    // Reset form data
     setFormData({ name: '', email: '', phone: '', dob: '' });
-    // Close modal
     closeModal();
   };
 
@@ -87,8 +84,8 @@ export default function UserDtails() {
               <span className="modal-close" onClick={closeModal}>&times;</span>
               <h2>Fill Details</h2>
               <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Userame:</label>
-                <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required /><br />
+                <label htmlFor="username">Userame:</label>
+                <input type="text" id="username" name="username" value={formData.username} onChange={handleInputChange} required /><br />
                 <label htmlFor="email">Email Address:</label>
                 <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required /><br />
                 <label htmlFor="phone">Phone Number:</label>
