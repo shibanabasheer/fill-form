@@ -40,7 +40,7 @@ export default function UserDtails() {
       alert('Please fill out all fields.');
       return;
     }
-    else if (!email.includes('@')) {
+    else if (!/^\S+@\S+\.\S+$/.test(email)) {
       alert('Invalid email. Please check your email address.');
       return;
     }
