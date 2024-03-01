@@ -40,19 +40,25 @@ export default function UserDtails() {
     //   alert(``);
     //   return;
     // }
-    if (!/^\S+@\S+\.\S+$/.test(email)) {
+    // if (!/^\S+@\S+\.\S+$/.test(email)) {
+    //   alert('Invalid email. Please check your email address.');
+    //   return;
+    // }
+
+    if (!email.includes('@')){
       alert('Invalid email. Please check your email address.');
-      // return;
+      return;
     }
+
     else if (phone.length !== 10 || isNaN(phone)) {
       alert('Invalid phone number. Please enter a 10-digit phone number.');
-      // return;
+      return;
     }
     const currentDate = new Date();
     const enteredDate = new Date(dob);
     if (enteredDate > currentDate) {
       alert('Invalid date of birth. Date of birth cannot be in the future.');
-      // return;
+      return;
     }
     // Handle form submission
     console.log('Form submitted:', { username, email, phone, dob });
